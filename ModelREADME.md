@@ -21,3 +21,9 @@ This repository contains the implementation of AI-based bias correction methods 
 ### Prerequisites
 - Julia 1.9+ 
 - Jupyter Notebook or JupyterLab
+
+## Expected Outputs
+- `img/` directories with plots in each correction folder
+- Loss curves, RMSE plots, spatial snapshots, time series 
+- GIF animations of the simulations
+- Updated `.bson` files for correction models
