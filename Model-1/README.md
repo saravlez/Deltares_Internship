@@ -27,3 +27,12 @@ This repository contains the implementation of AI-based bias correction methods 
 - Loss curves, RMSE plots, spatial snapshots, time series 
 - GIF animations of the simulations
 - Updated `.bson` files for correction models
+
+## Methodology
+This implements a two-stage bias correction:
+1. **Surrogate trained on 80% biased input** (20% underestimation)
+2. **Correction network learns to compensate** using true data
+
+Two architectures tested:
+- **Additive**: `Y_final = f_surrogate(X) + g_correction(X, f_surrogate(X))`
+- **Input**: `Y_final = f_surrogate(g_correction(X, f_surrogate(X)))`
