@@ -13,11 +13,11 @@ This repository contains the implementation of AI-based bias correction methods 
 - input_correction/input_correction_final.ipynb : Input correction method
 - combined_correction/combined_model_final.ipynb : Combined method structure
 
-### Prerequisites
-- Julia 1.9+ 
-- Jupyter Notebook or JupyterLab
-
-### Running the Experiments
+## Running the Experiments
 1. Run model_1d_burgers.ipynb to generate Burgers' equation simulation data
 2. Run training_burgers1d.ipynb to train and save the neural network surrogate model 
 3. Run the correction experiments with the generated trained_model.bson
+
+### Prerequisites
+- Julia 1.9+ 
+- Jupyter Notebook or JupyterLab
