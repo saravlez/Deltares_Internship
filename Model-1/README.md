@@ -1,6 +1,6 @@
 # Model 1: Burgers' Equation with AI-Based Bias Correction
 
-This repository contains the implementation of AI-based bias correction methods for surrogate models, applied to the 1D Burgers' equation. 
+This repository contains the implementation of two-stage AI bias correction for surrogate models, applied to 1D Burgers' equation with 20% systematic input bias.
 
 ## Directory Structure
 - `Project.toml` : Julia package dependencies
@@ -27,12 +27,3 @@ This repository contains the implementation of AI-based bias correction methods 
 - Loss curves, RMSE plots, spatial snapshots, time series 
 - GIF animations of the simulations
 - Updated `.bson` files for correction models
-
-## Methodology
-This implements a two-stage bias correction:
-1. **Surrogate trained on 80% biased input** (20% underestimation)
-2. **Correction network learns to compensate** using true data
-
-Two architectures tested:
-- **Additive**: `Y_final = f_surrogate(X) + g_correction(X, f_surrogate(X))`
-- **Input**: `Y_final = f_surrogate(g_correction(X, f_surrogate(X)))`
