@@ -27,7 +27,7 @@ Implements **two-stage AI bias correction** for **21% systematic wind stress und
 
 
 ## Running the Experiments
- 1. Core Physics + Data : first run `input_data.ipynb` to generate the different frameworks (all already in `data` folder)
+ 1. Numerical Simulation + Data : first run `input_data.ipynb` to generate the different frameworks (all already in `data` folder)
  2. Train Surrogate : then define the framework at the top of `surrogate_multi-data-init.ipynb` and run complete notebook (until surrogate 5 it is done for flat IC and short and long time)
  3. Train Correction : Finally, run `correction_multi-data.ipynb` with a similar framework
 
