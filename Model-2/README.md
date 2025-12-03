@@ -31,7 +31,7 @@ Implements **two-stage AI bias correction** for **21% systematic wind stress und
 2. `surrogate_multi-data-init.ipynb` → Train surrogates (Surrogate_1-5, short/long)
 3. `correction_multi-data.ipynb` → Train per-station corrections
 
-**Key params at top of notebooks:**
+Key params at top of notebooks:
 - `wind_name`: `periodic` (default), `piecewise`, `multi-frequency`
 - `TRAINSCALES`: `[0.9,1.0,1.2]` (multi-scale training)
 - `global_scale=false` (per-station correction)
