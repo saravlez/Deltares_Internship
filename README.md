@@ -14,7 +14,7 @@ This repository contains the code and results from Sara Velez's MSc internship a
 
 ### Prerequisites
 
-- Julia 1.9 [![Julia](https://img.shields.io/badge/Julia-1.9%2B-9558b2.svg)](https://julialang.org)
+- Julia 1.9 
 - JupyterLab (for `.ipynb` notebooks)
 - Install dependencies: `julia --project=. -e 'using Pkg; Pkg.instantiate()'`
 
