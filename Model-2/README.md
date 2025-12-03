@@ -4,17 +4,17 @@ Implements **two-stage AI bias correction** for **21% systematic wind stress und
 
 ## Directory Structure
 - `input_data.ipynb` # Parameter sweeps + visualization
-- `wind_forcing_functions.jl` # Periodic/piecewise/AR/multi-freq wind
-- `normalization-utils.jl` # Input/output normalization
 - `surrogate_multi-data.ipynb` # Surrogate training (multi-scale wind)
 - `surrogate_multi-data-init.ipynb` # Multi-IC variant (flat/bump/smallbump)
-- `correction_multi-data.ipynb` # Per-station input correction training
+- `correction_multi-data.ipynb` # Input correction training
+- `wind_forcing_functions.jl` # Periodic/piecewise/AR/multi-freq wind stress functions
+- `normalization-utils.jl` # Input/output normalization functions
 - `utils/` 
     - `model_1d_surge_wave.jl` # Fast PDE solver
     - `wave1d_surge.jld2` # Reference simulation
-    - `show_input.ipynb` # Input showcase for predefined configuration
-    - `show_surrogate.ipynb` # Surrogate diagnostics and visualization
-    - `show_correction.ipynb` # Correction results + RMSE analysis
+    - `show_input.ipynb` # Input showcase
+    - `show_surrogate.ipynb` # Surrogate diagnostics
+    - `show_correction.ipynb` # Correction evaluation
 - `surrogates/`: Trained surrogate models, data and visuals for short and long periods
 - `config_comparison/`: 
     - `correction_multi-comparison.ipynb`: Configuration comparison loop over 6 different combinations
@@ -22,17 +22,30 @@ Implements **two-stage AI bias correction** for **21% systematic wind stress und
     - `img`: Visualization from show_correction
 - `data/`: Diverse simulation and surrogate data
 - `data_multiscale/`: Multi-scale wind training data
-- `'Correction Comparisons of Report'/`: Report correction comparison results and figures
+- `'Correction Comparisons of Report'/`: Report comparison results and figures
 - `report_plots/`: Final report figures
 
 
-## Running the Experiments
- 1. Numerical Simulation + Data : first run `input_data.ipynb` to generate the different frameworks (all already in `data` folder)
- 2. Train Surrogate : then define the framework at the top of `surrogate_multi-data-init.ipynb` and run complete notebook (until surrogate 5 it is done for flat IC and short and long time)
- 3. Train Correction : Finally, run `correction_multi-data.ipynb` with a similar framework
+### Quick Run Order
+1. `input_data.ipynb` → Generates `data/*.jld2` (already done)
+2. `surrogate_multi-data-init.ipynb` → Train surrogates (Surrogate_1-5, short/long)
+3. `correction_multi-data.ipynb` → Train per-station corrections
 
+**Key params at top of notebooks:**
+- `wind_name`: `periodic` (default), `piecewise`, `multi-frequency`
+- `TRAINSCALES`: `[0.9,1.0,1.2]` (multi-scale training)
+- `global_scale=false` (per-station correction)
+- `bias_factor=1.1` (true 21% wind stress bias)
 
-## Large Files Notice
+### Expected Outputs
+- Training loss curves + validation rollouts
+- 3-station comparisons (left/middle/right)
+- RMSE evolution (74-78% improvement)
+- Correction factor evolution vs true bias
+- Phase space plots + GIFs in `utils/`
 
-One surrogate model exceeds GitHub’s 100 MB limit. Because of this, the file is **not stored directly in the repository**, surrogate 3 in the code which was not included in the report. Note how 3.1 and 3.2 correspond to 5 short and 5 long.   
-All other surrogate model files are saved normally on `data` and `surrogates`
+### Large Files Notice
+Surrogate_3 exceeds GitHub 100MB limit → Excluded from repo (not in report).  
+Note that Surrogates 3.1/3.2 = Surrogate_5 (short/long versions).  
+All other models/data available in `surrogates/` and `data/`.
+
