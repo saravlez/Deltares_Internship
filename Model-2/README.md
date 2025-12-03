@@ -37,13 +37,6 @@ Key params at top of notebooks:
 - `global_scale=false` (per-station correction)
 - `bias_factor=1.1` (true 21% wind stress bias)
 
-### Expected Outputs
-- Training loss curves + validation rollouts
-- 3-station comparisons (left/middle/right)
-- RMSE evolution (74-78% improvement)
-- Correction factor evolution vs true bias
-- Phase space plots + GIFs in `utils/`
-
 ### Large Files Notice
 Surrogate_3 exceeds GitHub 100MB limit → Excluded from repo (not in report).  
 Note that Surrogates 3.1/3.2 = Surrogate_5 (short/long versions).  
