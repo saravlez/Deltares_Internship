@@ -6,10 +6,10 @@ This repository contains the code and results from Sara Velez's MSc internship a
 - **Model 2**: 1D shallow-water equations with wind forcing (21% wind stress bias) - realistic storm surge physics
 
 ### Repository Structure
-- `Model-1/`,  Burgers' equation validation
-- `Model-2/`,  Storm surge (shallow-water) application
-- `Project.toml`,  Julia dependencies
-- `Manifest.toml`,  Reproducible package versions
+- `Model-1/`:  Burgers' equation validation
+- `Model-2/`:  Storm surge (shallow-water) application
+- `Project.toml`:  Julia dependencies
+- `Manifest.toml`:  Reproducible package versions
 
 ### Prerequisites
 
