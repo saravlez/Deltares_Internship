@@ -10,6 +10,7 @@ This repository contains the code and results from Sara Velez's MSc internship a
 - `Model-2/`:  Storm surge (shallow-water) application - complete implementation
 - `Project.toml`:  Julia dependencies
 - `Manifest.toml`:  Reproducible package versions
+- `Internship_Report_SaraVelez.pdf`: Full methodology + results
 
 ### Prerequisites
 
